@@ -25,22 +25,19 @@ class Person
     }
 }
 
-//create a new person object
-$person = new Person();
 
-// set person name and email
-$person->setName("John Doe");
-$person->setEmail("john@doe.org");
+if(isset($_POST['submit']))
+{
+    //create a new person object
+    $person = new Person();
+
+    // set person name and email from _POST superglobal variable
+    $person->setName($_POST['name']);
+    $person->setEmail($_POST['email']);
+
+//    Display information using getName() and getEmail() methods
+    echo "<h2>Person Information:</h2>";
+    echo "Name: " . $person->getName() . "<br>";
+    echo "Email: " . $person->getEmail() . "<br>";
+}
 ?>
-
-<!--Task-2: get person name and email and display in browser-->
-<!doctype html>
-<html lang="en">
-<head>
-    <title>testing</title>
-</head>
-<body>
-<span><?php echo "Name: ".$person->getName()."<br/>"; ?></span>
-<span><?php echo "Email: ".$person->getEmail()."<br/>"; ?></span>
-</body>
-</html>
